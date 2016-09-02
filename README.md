@@ -1,5 +1,5 @@
 # chut
-> CHUT is a simple shell executable to mut or increase/decrease the system audio volume on Mac OS X.
+> CHUT is a simple shell executable to mute, increase or decrease the system audio volume on Mac OS X.
 
 > USAGE chut [][-][--][+][++]
       no arg will mute (default)
