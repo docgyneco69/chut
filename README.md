@@ -35,7 +35,8 @@ Don't forget to turn the exec flag on:
 
 **ENJOY**
 
-Now tuning down your music or that pesky zoom session in the background is as simple as entering in your terminal of choice: 
+Now toning down your music or that pesky zoom session in the background is as simple as entering in your terminal of choice: 
 `chut` 
-And to put the full volume back on: 
+
+and to trun the full volume back on: 
 `chut +++` 
