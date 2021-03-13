@@ -24,14 +24,11 @@ a little bash script to change your Mac system audio volume from your command li
 **`chut +++`**      : set the volume to the maximum
 
 **INSTALL**
-
-download the script ```curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut```
-
-set its exec flag ```chmod +x chut```
-
-move **chut** anywhere within your path ```mv chut ~/.bin/chut```
-
-and... voila!
+```
+  download the script: curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut
+  set its exec flag  : chmod +x chut
+  move to your path  : mv chut ~/.bin/chut
+```
 
 **ENJOY**
 
