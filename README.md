@@ -1,27 +1,37 @@
 # chut
-CHUT is a simple shell executable to mute, increase or decrease the system audio volume on Mac OS X.
+a little bash script to change your Mac system audio volume from your command line
 
->USAGE chut [][-][--][+][++]
-+   no arg will mute (default)
-+   [-][+] [--][++] to decrease or increase the volume
-+   [+++] to set to the maximum
-+   [-h][--help] display this message
+#### USAGE 
+**`chut [][0][1-100][-][--][+][++][+++][--help][--show]`**
+```javascript
+  from 0 to 100 : set the volume level (as a percentage)
+  - or +        : decrease or increase the volume by a half bar
+  -- or ++      : by a full bar
+  --- or +++    : min/max
+  --show        : show the current volume level
+  --help        : this help message
+  no value      : mute 
+  
+```
 
->NOTE sys sets volume as float (0-10/0.1) but outputs int (0-100/14)
+#### EXAMPLES
+**` chut `** mute the volume
 
-INSTALL anywhere under your path ($HOME/chut, ~/chut, /usr/local/bin/chut ...)
-> mv chut ~/chut 
+**` chut 90 `** set to 90% 
 
-TURN the exec flag on
-> chmod +x chut
+**` chut -- `** reduce by a full bar 
 
-ENJOY tuning down your music or that pesky website as simply as entering in your terminal of choice :
-> chut --
-
-> chut
-
-FULL Volume back on with : 
-> chut +++
+**` chut +++ `** set to the max
 
 
-Hope it proves useful!
+#### INSTALL
+download the script, turn the exec flag on, move it somewhere within your path e.g. `$HOME/.bin/chut` 
+```javascript
+  > curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut ; 
+  > chmod +x chut ; 
+  > mv chut ~/.bin/chut
+```
+
+
+#### ENJOY
+now muting your music or that pesky zoom session is as simple as inputing >**` chut `** in your terminal of choice, turn it right back up with >**` chut +++ `**
