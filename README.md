@@ -11,6 +11,7 @@ a little bash script to change your Mac system audio volume from your command li
   --show        : show the current volume level
   --help        : this help message
   no value      : mute 
+  
 ```
 
 
@@ -27,11 +28,12 @@ a little bash script to change your Mac system audio volume from your command li
 
 **INSTALL** 
 
-download the script, turn the exec flag on and move within your path ($HOME/.bin/chut etc.) 
+download the script, turn the exec flag on, move it somewhere within your path e.g. `$HOME/.bin/chut` 
 ```
   curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut ;
   chmod +x chut ;
   mv chut ~/.bin/chut ;
+  
 ```
 
 
