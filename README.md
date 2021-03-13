@@ -2,7 +2,7 @@
 a small bash script to change your Mac system audio volume from the command line.
 
 **USAGE** 
-```**chut [][0][1-100][-][--][+][++][+++][--help][--show]**```
+**`chut [][0][1-100][-][--][+][++][+++][--help][--show]`**
 
 **ARGS** 
 ```
@@ -15,8 +15,8 @@ from 0 to 100 : set the volume level (as a percentage)
 no value 		  : mute
 ```
 
-```  
 **EXAMPLES**
+```
   chut          : mute the sound
   chut 90       : set the volume to 90%
   chut --       : reduce the volume by a half bar
