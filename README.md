@@ -18,8 +18,11 @@ no value 		  : mute
 **EXAMPLES**
 `
 > chut          : mute the sound
+
 > chut 90       : set the volume to 90%
+
 > chut --       : reduce the volume by a half bar
+
 > chut +++      : set the volume to the maximum
 `
 
