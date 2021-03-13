@@ -5,7 +5,6 @@
 ## but as no outside arg is passed by the script I kept the usual
 ## arg format for code readibility (and pure laziness)
 
-function _usage() { echo -e "CHUT  a small bash script to change your Mac system audio volume from the command line. 
 function _usage() { echo -e "CHUT  a small bash script to change your Mac system audio volume from the command line.
 
 USAGE chut [][0][1-100][-][--][+][++][+++][--help][--show]
