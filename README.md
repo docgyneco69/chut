@@ -31,4 +31,4 @@ download the script, turn the exec flag on, move it somewhere within your path e
 ```
 
 #### ENJOY
-now muting your music or that pesky zoom session is as simple as entering in your terminal of choice **`chut`** and turn the volume right back up with **`chut +++`**
+now muting your music or that pesky zoom session is as simple as entering in your terminal of choice: **`chut`** and to turn the volume right back up: **`chut +++`**
