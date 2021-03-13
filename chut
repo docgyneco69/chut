@@ -38,14 +38,14 @@ _level='' ;   # if set then assigned as the volume level, defaults to unset
 while [[ "$1" ]]; do case "$1" in
 	"-h"|"--help") 	_usage ;;
 	"--show"|"-v")	echo -e "${curr_vol}" ; exit 0 ;;
-	"-")						_x='- 0.5' ;;
-	"--")						_x='- 1.0' ;;
-	"+")						_x='+ 0.5' ;;
-	"++")						_x='+ 1.0' ;;
-	"+++")					_x='+ 100' ;;
+	"-")		_x='- 0.5' ;;
+	"--")		_x='- 1.0' ;;
+	"+")		_x='+ 0.5' ;;
+	"++")		_x='+ 1.0' ;;
+	"+++")		_x='+ 100' ;;
 	[1-9]|[1-9][0-9]|100)
-									_level="$(echo "scale=1; $1/14" | /usr/bin/bc -lq 2>&-)" ;; # number between 1 and 100: set the volume
-	0|---|""|*)			_x='- 100' ;; # 0, ---, empty or anyother value: mute
+			_level="$(echo "scale=1; $1/14" | /usr/bin/bc -lq 2>&-)" ;; # number between 1 and 100: set the volume
+	0|---|""|*)	_x='- 100' ;; # 0, ---, empty or anyother value: mute
 esac ; break ; done ;
 
 # change curr_vol by _x using bc for floating point, escaping potential errors and using only one decimal for the new value
