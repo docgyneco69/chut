@@ -16,13 +16,17 @@ a little bash script to change your Mac system audio volume from your command li
 
 **EXAMPLES**
 
-**`chut`**          : mute the sound
-**`chut 90`**       : set the volume to 90%
-**`chut --`**       : reduce the volume by a half bar
-**`chut +++`**      : set the volume to the maximum
+**`chut`**          : mute the sound 
+
+**`chut 90`**       : set the volume to 90% 
+
+**`chut --`**       : reduce the volume by a half bar 
+
+**`chut +++`**      : set the volume to the maximum 
 
 
 **INSTALL** 
+
 download the script, turn the exec flag on and move within your path ($HOME/.bin/chut etc.) 
 ```
   curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut ;
@@ -32,4 +36,8 @@ download the script, turn the exec flag on and move within your path ($HOME/.bin
 
 
 **ENJOY**
-now muting your music or that pesky zoom session is as simple as entering in your terminal of choice: **`chut`** - turn it right back up with: **`chut +++`** 
+
+now muting your music or that pesky zoom session is as simple as entering in your terminal of choice: **`chut`**
+
+turn the volume right back up with: **`chut +++`** 
+
