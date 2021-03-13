@@ -1,7 +1,8 @@
 # chut
 a small bash script to change your Mac system audio volume from the command line.
 
-**USAGE** 
+**USAGE**
+
 **`chut [][0][1-100][-][--][+][++][+++][--help][--show]`**
 
 **ARGS** 
@@ -17,22 +18,19 @@ no value 		  : mute
 
 **EXAMPLES**
 ```
-chut          : mute the sound
-chut 90       : set the volume to 90%
-chut --       : reduce the volume by a half bar
-chut +++      : set the volume to the maximum
+> chut          : mute the sound
+> chut 90       : set the volume to 90%
+> chut --       : reduce the volume by a half bar
+> chut +++      : set the volume to the maximum
 ```
 
 **INSTALL**
-download anywhere, preferably under your path ($HOME/chut, ~/chut, /usr/local/bin/chut etc.):
-> ```mv chut ~/chut```
 
-Don't forget to turn the exec flag on:
-> ```chmod +x chut```
+download anywhere, preferably under your path ($HOME/chut, ~/chut, /usr/local/bin/chut etc.): > ```mv chut ~/chut```
+
+Don't forget to turn the exec flag on: > ```chmod +x chut```
 
 **ENJOY**
-Now tuning down your music or that pesky zoom session in the background is as simple as entering in your terminal of choice:
-> `chut`
 
-To put the full volume back on:
-> `chut +++`
+Now tuning down your music or that pesky zoom session in the background is as simple as entering in your terminal of choice: > `chut`
+And to put the full volume back on: > `chut +++`
