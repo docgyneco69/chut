@@ -1,10 +1,8 @@
 # chut
 a little bash script to change your Mac system audio volume from your command line
 
-**USAGE**
+**USAGE AND ARGS**
 **`chut [][0][1-100][-][--][+][++][+++][--help][--show]`**
-
-**ARGS** 
 ```
   from 0 to 100 : set the volume level (as a percentage)
   - or +        : decrease or increase the volume by a half bar
@@ -14,16 +12,6 @@ a little bash script to change your Mac system audio volume from your command li
   --help        : this help message
   no value      : mute 
 ```
-
-**INSTALL**
-
-Download the code for chut anywhere 
-```curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut```
-
-Set the exec flag on ```chmod +x chut```
-
-Move it within your path, as an example $HOME/.bin/chut ```mv chut ~/.bin/chut``` 
-
 
 **`EXAMPLES`**
 
@@ -35,7 +23,19 @@ Move it within your path, as an example $HOME/.bin/chut ```mv chut ~/.bin/chut``
 
 **`chut +++`**      : set the volume to the maximum
 
-**ENJOY**
+**INSTALL**
 
-Now toning down your music or that pesky zoom session is as simple as entering in your terminal of choice: 
-**`chut`** - and to turn the volume right back up to full: **`chut +++`** 
+>download the script ```curl -O https://raw.githubusercontent.com/docgyneco69/chut/master/chut```
+
+>set its exec flag ```chmod +x chut```
+
+>move **chut** anywhere within your path ```mv chut ~/.bin/chut```
+
+>and... voila!
+
+**ENJOY**
+Now muting your music or that pesky zoom session is as simple as entering in your terminal of choice: 
+>**`chut`**
+
+and turning the volume right back up: 
+>**`chut +++`** 
