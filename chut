@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ## CHUT script
 ## applescript arg is not fully bullet proofed for sneaky cmds
@@ -6,6 +6,7 @@
 ## arg format for code readibility (and pure laziness)
 
 function _usage() { echo -e "CHUT  a small bash script to change your Mac system audio volume from the command line. 
+function _usage() { echo -e "CHUT  a small bash script to change your Mac system audio volume from the command line.
 
 USAGE chut [][0][1-100][-][--][+][++][+++][--help][--show]
 
@@ -15,23 +16,26 @@ ARGS  from 0 to 100 : set the volume level (as a percentage)
       --- or +++    : min/max
       --show        : show the current volume level
       --help        : this help message
-      no value 			: mute
+      no value      : mute
 
 EX.   chut          : mute the sound
       chut 90       : set the volume to 90%
       chut --       : reduce the volume by a half bar
       chut +++      : set the volume to the maximum
 
-NOTE  sys sets volume as float (0-10/0.1) but outputs int (0-100/14)" ; exit 1 ; } ;
+NOTE  sys sets volume as float (0-10/0.1) but outputs int (0-100/14)
+" ; 
+exit 1 ; } ;
 
 # get current volume value from system (sys volume is 0 to 100 step 14) - if error defaults to zero
 curr_vol=$(/usr/bin/osascript -e "item 1 of (get volume settings as list)" 2>&- || echo 0) ;
 
-# init variables
-_x='- 100' ;  # the decrement/increment value, defaults to muting (-100) 
-_level='' ;   # when set will change the volume level to its value
+# init other variables
+_x='- 100' ;  # the decrement/increment value to the current volume level, defaults to muting (-100) 
+_level='' ;   # if set then assigned as the volume level, defaults to unset
 
-# set _x by looping $1 then break as we only use 1st arg, -h or --help to print usage
+# set _x by looping $1 then break as we only use 1st arg, 
+# -h or --help to print usage, --show to output current volume, 1-100 to set the volume level directly
 while [[ "$1" ]]; do case "$1" in
 	"-h"|"--help") 	_usage ;;
 	"--show"|"-v")	echo -e "${curr_vol}" ; exit 0 ;;
@@ -40,15 +44,15 @@ while [[ "$1" ]]; do case "$1" in
 	"+")						_x='+ 0.5' ;;
 	"++")						_x='+ 1.0' ;;
 	"+++")					_x='+ 100' ;;
-	[1-9]|[1-9][0-9]|100)          # number between 1 and 100: set the volume
-									_level="$(echo "scale=1; $1/14" | /usr/bin/bc -lq 2>&-)" ;;
-	0|---|""|*)			_x='- 100' ;;  # 0, ---, empty or anyother value: mute
+	[1-9]|[1-9][0-9]|100) 
+									_level="$(echo "scale=1; $1/14" | /usr/bin/bc -lq 2>&-)" ;; # number between 1 and 100: set the volume
+	0|---|""|*)			_x='- 100' ;; # 0, ---, empty or anyother value: mute
 esac ; break ; done ;
 
-# set new volume via _x - use bc for floating point, escape potential errors, or directly using the _level value if set
-# print value with one decimal - test & echo the new volume value via applescript
+# change curr_vol by _x using bc for floating point, escaping potential errors and using only one decimal for the new value 
+# or, if _level is set simply assign its value to curr_vol
+# last, set sys volume to curr_vol, test & echo volume value to test
 [[ -z "$_level" ]] && curr_vol=$( printf "%.1f" "$( echo "$curr_vol / 14 $_x" | /usr/bin/bc -l 2>&-)" ) || curr_vol="$_level" ;
 (/usr/bin/osascript -e "set Volume "\"$curr_vol"\" ") && echo $(/usr/bin/osascript -e "item 1 of (get volume settings as list)") ;
 
 exit 0 ;
-	
