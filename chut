@@ -40,6 +40,8 @@ function _mute_for() {
   fi
   echo -e "mute for $_mute_duration secs" ;
   /usr/bin/osascript -e "set volume output volume 0" ;
+  # continue script on CTRL+C to allow the user to stop mute ealier
+  trap ':' SIGINT
   sleep $_mute_duration ;
   /usr/bin/osascript -e "set volume output volume $curr_vol" ;
 } ;
