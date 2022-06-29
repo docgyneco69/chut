@@ -7,14 +7,13 @@
 
 function _usage() { echo -e "CHUT  a small bash script to change your Mac system audio volume from the command line.
 
-USAGE chut [][0][1-100][-][--][+][++][+++][--help][--show][--mute]
+USAGE chut [][0][1-100][-][--][+][++][+++][--help][--show]
 
 ARGS  from 0 to 100 : set the volume level (as a percentage)
       - or +        : decrease or increase the volume
       -- or ++      : by a half bar
       --- or +++    : min/max
       --show        : show the current volume level
-      --mute        : mute for the given seconds, then return to previous volume (default 10)
       --help        : this help message
       no value      : mute
 
@@ -22,29 +21,10 @@ EX.   chut          : mute the sound
       chut 90       : set the volume to 90%
       chut --       : reduce the volume by a half bar
       chut +++      : set the volume to the maximum
-      chut --mute 3 : mute for 3 seconds, then return to previous volume
 
 NOTE  sys sets volume as float (0-10/0.1) but outputs int (0-100/14)
 " ;
 exit 1 ; } ;
-
-# Mute sound for the given amount of seconds, then return to the previous
-# volume.
-#
-# arguments:
-# - mute duration in seconds (optional, default 10)
-function _mute_for() {
-  _mute_duration="$1"
-  if [ -z "${_mute_duration}" ]; then
-    _mute_duration=10
-  fi
-  echo -e "mute for $_mute_duration secs" ;
-  /usr/bin/osascript -e "set volume output volume 0" ;
-  # continue script on CTRL+C to allow the user to stop mute ealier
-  trap ':' SIGINT
-  sleep $_mute_duration ;
-  /usr/bin/osascript -e "set volume output volume $curr_vol" ;
-} ;
 
 # get current volume value from system (sys volume is 0 to 100 step 14) - if error defaults to zero
 curr_vol=$(/usr/bin/osascript -e "item 1 of (get volume settings as list)" 2>&- || echo 0) ;
@@ -58,7 +38,6 @@ _level='' ;   # if set then assigned as the volume level, defaults to unset
 while [[ "$1" ]]; do case "$1" in
 	"-h"|"--help") 	_usage ;;
 	"--show"|"-v")	echo -e "${curr_vol}" ; exit 0 ;;
-  "--mute"|"-m")	_mute_for $2 ; exit 0 ;;
 	"-")		_x='- 0.5' ;;
 	"--")		_x='- 1.0' ;;
 	"+")		_x='+ 0.5' ;;
